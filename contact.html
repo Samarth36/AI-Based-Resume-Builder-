@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    
+    
+    
+    
+    
+                    <style>
+        
+        #contact-us {
+            padding: 20px;
+        }
+
+        #contactForm {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-elem {
+            margin-bottom: 15px;
+        }
+
+       
+        @media (max-width: 768px) {
+            #contactForm {
+                max-width: 100%;
+            }
+        }
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="ec2cf918-a1cb-4073-b8f0-75a46b5ccf94";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+   <nav class = "navbar bg-white">
+            <div class="container">
+                <div class = "navbar-content">
+                    <div class = "brand-and-toggler">
+                        <a href = "index.html" class = "navbar-brand">
+                            <img src = "assets/images/curriculum-vitae.png" alt = "" class = "navbar-brand-icon">
+                            <span class = "navbar-brand-text">AI Based <span>Resume Builder.</span>
+                        </a>
+                        <div class="navbar-links">
+                   <a href="index.html">Home</a>&nbsp &nbsp &nbsp
+                    <a href="about.html">About Us</a>&nbsp &nbsp &nbsp
+                    <a href="contact.html">Contact Us</a>&nbsp &nbsp &nbsp
+                    <a href="sample-resume.html">Sample</a>&nbsp &nbsp &nbsp
+                    <a href="resume.html">Create Resume</a>&nbsp &nbsp &nbsp
+                     <a href="gpt/ChatGPT.html" target="_blank">TryGPT</a>&nbsp &nbsp &nbsp
+                    <a href="logout.php">Logout</a>&nbsp &nbsp &nbsp
+                </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    <header class="header bg-bright" id="header">
+        <div class="container">
+            <div class="header-content text-center">
+                <h6 class="text-uppercase text-blue-dark fs-14 fw-6 ls-1"></h6>
+                <h1 class="lg-title">Contact Us</h1>
+                <p class="text-dark fs-18">We’re here to connect with you! Whether you have questions, feedback, or just want to chat, feel free to reach out. Your satisfaction is our priority, and we look forward to hearing from you soon!
+
+</p>
+                <a href="#our-mission" class="btn btn-primary text-uppercase">Know more!</a>
+            </div>
+        </div>
+    </header>
+
+    
+                <!-- Contact Us Form -->
+                 <section id="contact-us">
+        <div class="container">
+            <h2 class="lg-title"></h2>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <div class="form-elem">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-elem">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-elem">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <br>
+        <br>
+    </section>
+
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="footer-content text-center">
+                <p class="fs-15">&copy; Copyright 2024-2029. All Rights Reserved - <span>AI Based Resume Builder</span></p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+<script>
+        function validateForm() {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var message = $("#message").val();
+
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            // Send notification to ezresume.tech@gmail.com
+            $.ajax({
+                type: "POST",
+                url: "send_email.php",
+                data: {
+                    name: name,
+                    email: email,
+                    message: message
+                },
+                success: function() {
+                    alert("Form submitted successfully!");
+                    window.location.href = "thankyou.html";
+                },
+                error: function() {
+                    alert("An error occurred. Please try again later.");
+                }
+            });
+
+            return false;
+        }
+    </script>
+</body>
+</html>
